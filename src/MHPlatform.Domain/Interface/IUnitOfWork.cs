@@ -8,7 +8,10 @@ namespace MHPlatform.Domain.Interface
 {
     public interface IUnitOfWork : IDisposable
     {
-        IOrderFormRepository OrderFormRepository { get; }
+        IOrderFormRepository OrderForm { get; }
+        IUserRepository User { get; }
+
+        IUserClaimRepository UserClaim { get; }
 
         Task<int> SaveChangesAsync();
         Task BeginTransactionAsync();

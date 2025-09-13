@@ -1,11 +1,13 @@
 ﻿using MHPlatform.Api.Common.Response;
 using MHPlatform.Application.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MHPlatform.Api.Controller
 {
-    [ApiController]
     [Route("api/customer")]
+    [Authorize(Policy = "CanAccessProducts")]
+    [ApiController]
     public class CustomerController: ControllerBase
     {
         private readonly IOrderFormService _orderFormService;

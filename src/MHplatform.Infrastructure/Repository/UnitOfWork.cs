@@ -16,18 +16,38 @@ namespace MHplatform.Infrastructure.Repository
         private bool _disposed = false;
 
         private IOrderFormRepository? _orderFormRepository;
+        private IUserRepository? _userRepository;
+        private IUserClaimRepository? _userClaimRepository;
 
         public UnitOfWork(DataContext context)
         {
             _context = context;
         }
 
-        public IOrderFormRepository OrderFormRepository
+        public IOrderFormRepository OrderForm
         {
             get
             {
                 _orderFormRepository ??= new OrderFormRepository(_context);
                 return _orderFormRepository;
+            }
+        }
+
+        public IUserRepository User
+        {
+            get
+            {
+                _userRepository ??= new UserRepository(_context);
+                return _userRepository;
+            }
+        }
+
+        public IUserClaimRepository UserClaim
+        {
+            get
+            {
+                _userClaimRepository ??= new UserClaimRepository(_context);
+                return _userClaimRepository;
             }
         }
 

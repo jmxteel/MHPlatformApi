@@ -23,7 +23,7 @@ namespace MHPlatform.Application.Service
 
         public async Task<OrderFormDto?> GetCustomerById(int id)
         {
-            var cutomerData = await _unitOfWork.OrderFormRepository.GetByIdAsync(id);
+            var cutomerData = await _unitOfWork.OrderForm.GetByIdAsync(id);
 
             return cutomerData is null? null : _mapper.Map<OrderFormDto>(cutomerData);
         }

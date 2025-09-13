@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MHPlatform API</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+        }
+
+        #tsparticles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5em;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2em;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        a.button {
+            padding: 15px 30px;
+            background: linear-gradient(to right, #0072ff, #00c6ff);
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+            a.button:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 25px rgba(0, 198, 255, 0.8);
+            }
+
+        footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #aaa;
+            z-index: 1;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="tsparticles"></div>
+    <div class="content">
+        <h1>🚀 Welcome to MHPlatform API</h1>
+        <p>Precision-crafted APIs for secure, scalable, and maintainable systems.</p>
+        <a href="/swagger" class="button">View API Documentation</a>
+    </div>
+    <footer>© 2025 MHPlatform. All rights reserved.</footer>
+
+    <!-- tsParticles CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script>
+        tsParticles.load("tsparticles", {
+            fullScreen: { enable: false },
+            background: { color: "#0f2027" },
+            particles: {
+                number: { value: 60 },
+                color: { value: "#00c6ff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5 },
+                size: { value: 3 },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    outModes: { default: "bounce" },
+                    attract: { enable: false }
+                },
+                links: {
+                    enable: true,
+                    distance: 150,
+                    color: "#00c6ff",
+                    opacity: 0.4,
+                    width: 1
+                }
+            }
+        });
+    </script>
+</body>
+</html>

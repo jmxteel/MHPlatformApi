@@ -104,10 +104,24 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    //app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+        c.RoutePrefix = "swagger"; // This makes Swagger available at /swagger
+    });
 }
 
 // Use routing/middleware
+
+app.UseDefaultFiles(); // Enables default file like index.html
+app.UseStaticFiles();  // Serves files from wwwroot
+app.MapGet("/", context =>
+{
+    context.Response.Redirect("/custom/index.html", permanent: false);
+    return Task.CompletedTask;
+});
+
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
